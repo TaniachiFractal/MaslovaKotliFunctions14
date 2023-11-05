@@ -187,7 +187,7 @@ fun main4()
         {
            temp = SarrNum[i].toInt()
             print(CodeToLtr(temp))
-           // println(SarrNum[i])
+           
         }
     }
 
@@ -196,59 +196,4 @@ fun main4()
     return
 }
 
-fun main2_()
-{
-    val alphLtr_ = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-    val alphLtr = alphLtr_.toCharArray()
-    val alphCode = arrayOf(
-        21, 13, 4, 20, 22, 1, 25, 12, 24, 14, 2, 28, 9, 23, 3, 29, 6, 16, 15,
-        11, 26, 5, 30, 27, 8, 18, 10, 33, 31, 32, 19, 7, 17
-    )
-    fun LtrToCode(ltr: Char):Int
-    {
-        var code = alphLtr.indexOf(ltr)
-        if (code == -1) return 0;
-        return alphCode[code];
-    }
-    fun CodeToLtr(code: Int):Char
-    {
-        var ltr = alphCode.indexOf(code)
-        if (ltr == -1) return ' ';
-        return alphLtr[ltr];
-    }
-    println("Введите ключевое слово")
-    var key = readln();
-    key = key.uppercase()
-    println("Введите текст")
-    var word = readln();
-    word = word.uppercase()
-    val n = word.length
-    val wordOut = word.toCharArray()
-
-    println("Введите 1, чтобы зашифровать текст, любую клавишу, чтобы дешифровать")
-    val act = readln();
-    var ltrOut: Char
-    var shift = 0
-    var keyI = 0
-    for (i in 0..word.length-1)
-    {
-        if (keyI>=key.length) keyI=0
-
-        if(act=="1")
-        {
-            shift = LtrToCode(word[i]) + LtrToCode(key[keyI])
-            while (shift>33) shift-=33
-        }
-        else
-        {
-            shift = LtrToCode(word[i]) - LtrToCode(key[keyI])
-            while (shift < 1) shift += 33
-        }
-
-        wordOut[i] = CodeToLtr(shift)
-        keyI++
-        print(wordOut[i])
-    }
-    println()
-    return;
-}
+    
